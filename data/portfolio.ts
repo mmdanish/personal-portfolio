@@ -4,7 +4,7 @@ export const personalInfo = {
   location: 'Kerala, India',
   email: 'mhddanish567@gmail.com',
   linkedin: 'https://linkedin.com/in/mmdanish',
-  instagram: 'https://instagram.com/mmdanish',
+  instagram: 'https://instagram.com/__.mohd.danish._',
   github: 'https://github.com/mmdanish',
   intro: 'I build modern digital experiences and work at the intersection of frontend development, product thinking, and user experience.',
 }
