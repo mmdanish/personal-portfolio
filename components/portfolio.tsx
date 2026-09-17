@@ -3,7 +3,13 @@
 import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowUpRight, FolderOpen, Globe, Mail, Moon, Sparkles, Sun } from 'lucide-react'
+import { siGithub, siInstagram } from 'simple-icons'
+import { FaLinkedinIn } from 'react-icons/fa6'
 import { aboutContent, education, experience, exploring, personalInfo, projects, skills } from '@/data/portfolio'
+
+function BrandIcon({ path }: { path: string }) {
+  return <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d={path} /></svg>
+}
 
 function Reveal({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const reduceMotion = useReducedMotion()
@@ -29,7 +35,7 @@ export function Hero() {
           <motion.p className="hero-role" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .55, duration: .7 }}>{personalInfo.role}</motion.p>
           <motion.p className="hero-description" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .7, duration: .7 }}>{personalInfo.intro}</motion.p>
           <motion.div className="intro-details" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .85, duration: .7 }}><span><Globe size={17} aria-hidden="true" />{personalInfo.location}</span><a href={`mailto:${personalInfo.email}`}><Mail size={17} aria-hidden="true" />{personalInfo.email}</a></motion.div>
-          <motion.div className="intro-links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: .7 }}><a href={personalInfo.github} target="_blank" rel="noreferrer" aria-label="GitHub"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/github/mono.svg" alt="" /></a><a href={personalInfo.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/linkedin/mono.svg" alt="" /></a><a href={personalInfo.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><img src="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/instagram/mono.svg" alt="" /></a><a href="#projects" aria-label="Projects"><FolderOpen size={20} aria-hidden="true" /></a></motion.div>
+          <motion.div className="intro-links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: .7 }}><a href={personalInfo.github} target="_blank" rel="noreferrer" aria-label="GitHub"><BrandIcon path={siGithub.path} /></a><a href={personalInfo.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedinIn aria-hidden="true" /></a><a href={personalInfo.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><BrandIcon path={siInstagram.path} /></a><a href="#projects" aria-label="Projects"><FolderOpen size={20} aria-hidden="true" /></a></motion.div>
         </div>
       </div>
       <div className="intro-about"><SectionLabel index="01">About</SectionLabel><Reveal><div className="about-copy"><p>{aboutContent.main}</p><p>{aboutContent.product}</p></div></Reveal></div>
