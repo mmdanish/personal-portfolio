@@ -31,7 +31,6 @@ export function Hero() {
           <motion.div className="intro-details" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .85, duration: .7 }}><span>{personalInfo.location}</span><a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a></motion.div>
           <motion.div className="intro-links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: .7 }}><a href={personalInfo.github} target="_blank" rel="noreferrer">GitHub</a><a href={personalInfo.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href="#projects">Projects</a></motion.div>
         </div>
-        <div className="portrait-placeholder" aria-hidden="true">MD</div>
       </div>
       <div className="intro-about"><SectionLabel index="01">About</SectionLabel><Reveal><div className="about-copy"><p>{aboutContent.main}</p><p>{aboutContent.product}</p></div></Reveal></div>
     </div>
