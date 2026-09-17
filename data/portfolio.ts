@@ -10,8 +10,8 @@ export const personalInfo = {
 }
 
 export const aboutContent = {
-  main: 'Results-driven Frontend Developer with 1.5+ years of professional experience plus ongoing independent project work, specialising in modern, responsive and scalable web applications using React.js and JavaScript. Experienced in component-based architecture, state management, REST API integration, performance optimization and cross-browser compatibility.',
-  product: 'Currently exploring product management alongside frontend development, contributing to feature planning, requirement gathering and cross-functional collaboration between design, engineering and business teams.',
+  main: 'I’m currently working as a Product Management Intern at Edapt, where I’m involved in product research, feature planning, requirement gathering, and improving user experiences. I work closely with design, engineering, and business teams to understand problems and translate ideas into practical product solutions.',
+  product: 'Alongside my product management role, I work part-time as a Freelance Frontend Developer, building modern, responsive, and scalable web applications using React.js and JavaScript. With 1.5+ years of professional frontend experience, I bring a strong technical perspective to product development and enjoy bridging the gap between product ideas and implementation.',
 }
 
 export const experience = [
