@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-import { ArrowUpRight, ChevronDown, Moon, Sun } from 'lucide-react'
+import { ArrowUpRight, Moon, Sun } from 'lucide-react'
 import { aboutContent, education, experience, exploring, personalInfo, projects, skills } from '@/data/portfolio'
 
 function Reveal({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -21,19 +21,24 @@ export function Navbar({ dark, onToggle }: { dark: boolean; onToggle: () => void
 }
 
 export function Hero() {
-  return <section className="hero" id="top">
+  return <section className="hero combined-intro" id="top">
     <div className="hero-inner">
-      <motion.h1 initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .25, ease: [0.22, 1, 0.36, 1] }}>Mohammed<br /><em>Danish</em></motion.h1>
-      <motion.div className="hero-bottom" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .7, duration: .7 }}>
-        <div><p className="hero-role">{personalInfo.role}</p><p className="hero-description">{personalInfo.intro}</p></div>
-        <div className="hero-ctas"><a className="button button-dark" href="#projects">View projects <ArrowUpRight size={16} /></a></div>
-      </motion.div>
+      <div className="intro-topline">
+        <div>
+          <motion.h1 initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .25, ease: [0.22, 1, 0.36, 1] }}>Mohammed Danish</motion.h1>
+          <motion.p className="hero-role" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .55, duration: .7 }}>{personalInfo.role}</motion.p>
+          <motion.p className="hero-description" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .7, duration: .7 }}>{personalInfo.intro}</motion.p>
+          <motion.div className="intro-details" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .85, duration: .7 }}><span>{personalInfo.location}</span><a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a></motion.div>
+          <motion.div className="intro-links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: .7 }}><a href={personalInfo.github} target="_blank" rel="noreferrer">GitHub</a><a href={personalInfo.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href="#projects">Projects</a></motion.div>
+        </div>
+        <div className="portrait-placeholder" aria-hidden="true">MD</div>
+      </div>
+      <div className="intro-about"><SectionLabel index="01">About</SectionLabel><Reveal><div className="about-copy"><p>{aboutContent.main}</p><p>{aboutContent.product}</p></div></Reveal></div>
     </div>
-    <div className="hero-meta"><span>01 / 06</span><span>{personalInfo.location}</span><span className="scroll-note">Scroll to explore <ChevronDown size={15} /></span></div>
   </section>
 }
 
-export function About() { return <section className="section about-section" id="about"><div className="container"><SectionLabel index="01">About me</SectionLabel><div className="about-grid"><Reveal><h2>Frontend craft,<br /><span>product thinking.</span></h2></Reveal><Reveal delay={.1}><div className="about-copy"><p>{aboutContent.main}</p><p>{aboutContent.product}</p></div></Reveal></div></div></section> }
+export function About() { return null }
 
 export function Experience() { return <section className="section experience-section" id="experience"><div className="container"><SectionLabel index="02">Experience</SectionLabel><div className="timeline">{experience.map((item, i) => <Reveal key={item.number} delay={i * .05}><article className="experience-item"><div className="timeline-marker"><span>{item.number}</span></div><div className="experience-heading"><h3>{item.title}</h3><p>{item.company}</p></div><div className="experience-detail"><time>{item.period}</time><ul>{item.description.map((line) => <li key={line}>{line}</li>)}</ul></div></article></Reveal>)}</div></div></section> }
 
@@ -45,6 +50,6 @@ export function Education() { return <section className="section education-secti
 
 export function Footer() { return <footer className="footer"><span>© Mohammed Danish</span><div><a href={personalInfo.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href={personalInfo.github} target="_blank" rel="noreferrer">GitHub</a><a href={`mailto:${personalInfo.email}`}>Email</a></div><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Back to top ↑</button></footer> }
 
-export function Portfolio() { const [dark, setDark] = useState(false); useEffect(() => { document.documentElement.classList.toggle('dark', dark) }, [dark]); return <><Navbar dark={dark} onToggle={() => setDark(!dark)} /><main><Hero /><About /><Experience /><Skills /><Projects /><Education /></main><Footer /></> }
+export function Portfolio() { const [dark, setDark] = useState(false); useEffect(() => { document.documentElement.classList.toggle('dark', dark) }, [dark]); return <><Navbar dark={dark} onToggle={() => setDark(!dark)} /><main><Hero /><Experience /><Skills /><Projects /><Education /></main><Footer /></> }
 
 export default Portfolio
