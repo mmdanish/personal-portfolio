@@ -4,12 +4,13 @@ import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowUpRight, FolderOpen, Globe, Mail, Moon, Sparkles, Sun } from 'lucide-react'
 import { siGithub, siInstagram } from 'simple-icons'
-import { FaLinkedinIn } from 'react-icons/fa6'
 import { aboutContent, education, experience, exploring, personalInfo, projects, skills } from '@/data/portfolio'
 
 function BrandIcon({ path }: { path: string }) {
   return <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d={path} /></svg>
 }
+
+const linkedinPath = 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V8.999h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.604 0 4.267 2.37 4.267 5.455v6.287zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM3.555 20.452h3.558V8.999H3.555v11.453zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.454C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z'
 
 function Reveal({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const reduceMotion = useReducedMotion()
@@ -35,7 +36,7 @@ export function Hero() {
           <motion.p className="hero-role" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .55, duration: .7 }}>{personalInfo.role}</motion.p>
           <motion.p className="hero-description" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .7, duration: .7 }}>{personalInfo.intro}</motion.p>
           <motion.div className="intro-details" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .85, duration: .7 }}><span><Globe size={17} aria-hidden="true" />{personalInfo.location}</span><a href={`mailto:${personalInfo.email}`}><Mail size={17} aria-hidden="true" />{personalInfo.email}</a></motion.div>
-          <motion.div className="intro-links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: .7 }}><a href={personalInfo.github} target="_blank" rel="noreferrer" aria-label="GitHub"><BrandIcon path={siGithub.path} /></a><a href={personalInfo.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedinIn aria-hidden="true" /></a><a href={personalInfo.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><BrandIcon path={siInstagram.path} /></a><a href="#projects" aria-label="Projects"><FolderOpen size={20} aria-hidden="true" /></a></motion.div>
+          <motion.div className="intro-links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: .7 }}><a href={personalInfo.github} target="_blank" rel="noreferrer" aria-label="GitHub"><BrandIcon path={siGithub.path} /></a><a href={personalInfo.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><BrandIcon path={linkedinPath} /></a><a href={personalInfo.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><BrandIcon path={siInstagram.path} /></a><a href="#projects" aria-label="Projects"><FolderOpen size={20} aria-hidden="true" /></a></motion.div>
         </div>
       </div>
       <div className="intro-about"><SectionLabel index="01">About</SectionLabel><Reveal><div className="about-copy"><p>{aboutContent.main}</p><p>{aboutContent.product}</p></div></Reveal></div>
