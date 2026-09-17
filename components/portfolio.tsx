@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-import { ArrowUpRight, Moon, Sun } from 'lucide-react'
+import { ArrowUpRight, Moon, Sparkles, Sun } from 'lucide-react'
 import { aboutContent, education, experience, exploring, personalInfo, projects, skills } from '@/data/portfolio'
 
 function Reveal({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -42,7 +42,7 @@ export function About() { return null }
 
 export function Experience() { return <section className="section experience-section" id="experience"><div className="container"><SectionLabel index="02">Experience</SectionLabel><div className="timeline">{experience.map((item, i) => <Reveal key={item.number} delay={i * .05}><article className="experience-item"><div className="timeline-marker"><span>{item.number}</span></div><div className="experience-heading"><h3>{item.title}</h3><p>{item.company}</p></div><div className="experience-detail"><time>{item.period}</time><ul>{item.description.map((line) => <li key={line}>{line}</li>)}</ul></div></article></Reveal>)}</div></div></section> }
 
-export function Skills() { return <section className="section skills-section" id="skills"><div className="container"><SectionLabel index="03">Toolkit</SectionLabel><div className="skills-intro"><Reveal><h2>Tools for thoughtful<br /><span>digital products.</span></h2></Reveal><Reveal delay={.1}><p>A focused set of technologies and practices I use to turn ideas into dependable, responsive interfaces.</p></Reveal></div><div className="skills-grid">{Object.entries(skills).map(([group, items], i) => <Reveal key={group} delay={i * .04}><div className="skill-group"><h3>{group}</h3><div className="skill-list">{items.map((skill) => <span key={skill}>{skill}</span>)}</div></div></Reveal>)}</div></div></section> }
+export function Skills() { const skillItems = [...new Set(Object.values(skills).flat())]; return <section className="section skills-section" id="skills"><div className="container"><Reveal><h2 className="skills-heading">Skills <Sparkles size={30} strokeWidth={1.8} aria-hidden="true" /></h2></Reveal><div className="skills-pills">{skillItems.map((skill, i) => <Reveal key={skill} delay={i * .018}><span className="skill-pill">{skill}</span></Reveal>)}</div></div></section> }
 
 export function Projects() { return <section className="section projects-section" id="projects"><div className="container"><SectionLabel index="04">Selected projects</SectionLabel><Reveal><h2 className="projects-title">Work that moves<br /><span>things forward.</span></h2></Reveal><div className="project-list">{projects.map((project, i) => <Reveal key={project.name} delay={i * .08}><article className="project-row"><div className="project-number">{project.number}</div><div className="project-main"><div className="project-top"><div><p className="project-status">{project.status}</p><h3>{project.name}</h3><p className="project-subtitle">{project.subtitle}</p></div>{project.live ? <a className="project-arrow" href={project.live} target="_blank" rel="noreferrer" aria-label={`Open ${project.name}`}><ArrowUpRight size={24} /></a> : <span className="project-arrow muted"><ArrowUpRight size={24} /></span>}</div><p className="project-description">{project.description}</p><div className="project-footer"><span>{project.role}</span><div>{project.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div></div></div></article></Reveal>)}</div></div></section> }
 
