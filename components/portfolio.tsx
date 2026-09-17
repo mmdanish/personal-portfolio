@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowUpRight, FolderOpen, Globe, Mail, Moon, Sparkles, Sun } from 'lucide-react'
 import { siGithub, siInstagram } from 'simple-icons'
@@ -15,6 +15,40 @@ const linkedinPath = 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.03
 function Reveal({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const reduceMotion = useReducedMotion()
   return <motion.div className={className} initial={reduceMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}>{children}</motion.div>
+}
+
+function CustomCursor() {
+  const cursorRef = useRef<HTMLDivElement>(null)
+  const frameRef = useRef<number | null>(null)
+  const positionRef = useRef({ x: 0, y: 0 })
+  const targetRef = useRef({ x: 0, y: 0 })
+  const reduceMotion = useReducedMotion()
+
+  useEffect(() => {
+    const finePointer = window.matchMedia('(pointer: fine)')
+    if (!finePointer.matches || reduceMotion) return
+    const cursor = cursorRef.current
+    if (!cursor) return
+
+    const render = () => {
+      const current = positionRef.current
+      const target = targetRef.current
+      current.x += (target.x - current.x) * 0.22
+      current.y += (target.y - current.y) * 0.22
+      cursor.style.transform = `translate3d(${current.x}px, ${current.y}px, 0)`
+      frameRef.current = requestAnimationFrame(render)
+    }
+    const move = (event: MouseEvent) => { targetRef.current = { x: event.clientX, y: event.clientY }; cursor.classList.add('is-visible') }
+    const over = (event: MouseEvent) => { if ((event.target as Element).closest('a, button, [role="button"], input, textarea, select, summary')) cursor.classList.add('is-hovering') }
+    const out = (event: MouseEvent) => { if (!(event.relatedTarget as Element | null)?.closest?.('a, button, [role="button"], input, textarea, select, summary')) cursor.classList.remove('is-hovering') }
+    window.addEventListener('mousemove', move, { passive: true })
+    document.addEventListener('mouseover', over, { passive: true })
+    document.addEventListener('mouseout', out, { passive: true })
+    frameRef.current = requestAnimationFrame(render)
+    return () => { window.removeEventListener('mousemove', move); document.removeEventListener('mouseover', over); document.removeEventListener('mouseout', out); if (frameRef.current) cancelAnimationFrame(frameRef.current) }
+  }, [reduceMotion])
+
+  return <div ref={cursorRef} className="custom-cursor" aria-hidden="true" />
 }
 
 function SectionLabel({ index, children }: { index: string; children: React.ReactNode }) {
@@ -56,6 +90,6 @@ export function Education() { return <section className="section education-secti
 
 export function Footer() { return <footer className="footer"><span>© Mohammed Danish</span><div><a href={personalInfo.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href={personalInfo.github} target="_blank" rel="noreferrer">GitHub</a><a href={`mailto:${personalInfo.email}`}>Email</a></div><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Back to top ↑</button></footer> }
 
-export function Portfolio() { const [dark, setDark] = useState(false); useEffect(() => { document.documentElement.classList.toggle('dark', dark) }, [dark]); return <><Navbar dark={dark} onToggle={() => setDark(!dark)} /><main><Hero /><Experience /><Skills /><Projects /><Education /></main><Footer /></> }
+export function Portfolio() { const [dark, setDark] = useState(false); useEffect(() => { document.documentElement.classList.toggle('dark', dark) }, [dark]); return <><CustomCursor /><Navbar dark={dark} onToggle={() => setDark(!dark)} /><main><Hero /><Experience /><Skills /><Projects /><Education /></main><Footer /></> }
 
 export default Portfolio
