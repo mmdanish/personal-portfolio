@@ -29,7 +29,7 @@ export function Hero() {
           <motion.p className="hero-role" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .55, duration: .7 }}>{personalInfo.role}</motion.p>
           <motion.p className="hero-description" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .7, duration: .7 }}>{personalInfo.intro}</motion.p>
           <motion.div className="intro-details" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .85, duration: .7 }}><span>{personalInfo.location}</span><a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a></motion.div>
-          <motion.div className="intro-links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: .7 }}><a href={personalInfo.github} target="_blank" rel="noreferrer">GitHub</a><a href={personalInfo.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href="#projects">Projects</a></motion.div>
+          <motion.div className="intro-links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: .7 }}><a href={personalInfo.github} target="_blank" rel="noreferrer">GitHub</a><a href={personalInfo.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href={personalInfo.instagram} target="_blank" rel="noreferrer">Instagram</a><a href="#projects">Projects</a></motion.div>
         </div>
       </div>
       <div className="intro-about"><SectionLabel index="01">About</SectionLabel><Reveal><div className="about-copy"><p>{aboutContent.main}</p><p>{aboutContent.product}</p></div></Reveal></div>
