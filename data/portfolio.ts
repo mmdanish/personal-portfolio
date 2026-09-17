@@ -6,7 +6,7 @@ export const personalInfo = {
   linkedin: 'https://linkedin.com/in/mmdanish',
   instagram: 'https://instagram.com/__.mohd.danish._',
   github: 'https://github.com/mmdanish',
-  intro: 'I build modern digital experiences and work at the intersection of frontend development, product thinking, and user experience.',
+  intro: 'Building AI-powered learning experiences & digital products.',
 }
 
 export const aboutContent = {
