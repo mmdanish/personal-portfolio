@@ -2,9 +2,29 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
+const siteUrl = 'https://v0-mhddanish.vercel.app/'
+const pageTitle = 'Mohammed Danish — Product Management Intern & Frontend Developer'
+const pageDescription = 'Mohammed Danish is a Product Management Intern at Edapt and a freelance frontend developer building modern digital products and user-focused web experiences.'
+
 export const metadata: Metadata = {
-  title: 'Mohammed Danish — Frontend Developer',
-  description: 'Portfolio of Mohammed Danish, a Frontend Developer and Product Management Intern building thoughtful digital products.',
+  metadataBase: new URL(siteUrl),
+  title: pageTitle,
+  description: pageDescription,
+  alternates: { canonical: siteUrl },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: pageTitle,
+    description: 'Product Management Intern at Edapt and freelance frontend developer building modern digital products and user-focused web experiences.',
+    type: 'website',
+    url: siteUrl,
+    images: [{ url: '/md-favicon.png', width: 1280, height: 1280, alt: 'MD monogram for Mohammed Danish' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+    images: ['/md-favicon.png'],
+  },
   generator: 'v0.app',
   icons: {
     icon: [
@@ -33,6 +53,13 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         {children}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@graph': [
+            { '@type': 'Person', name: 'Mohammed Danish', url: siteUrl, jobTitle: 'Product Management Intern', worksFor: { '@type': 'Organization', name: 'Edapt' }, sameAs: ['https://github.com/mmdanish', 'https://linkedin.com/in/mmdanish'] },
+            { '@type': 'WebSite', name: 'Mohammed Danish', url: siteUrl },
+          ],
+        }) }} />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

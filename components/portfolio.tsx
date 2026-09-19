@@ -52,7 +52,7 @@ function CustomCursor() {
 }
 
 function SectionLabel({ index, children }: { index: string; children: React.ReactNode }) {
-  return <div className="section-label"><span>{index}</span><span>{children}</span></div>
+  return <h2 className="section-label"><span>{index}</span><span>{children}</span></h2>
 }
 
 export function Navbar({ dark, onToggle }: { dark: boolean; onToggle: () => void }) {
@@ -66,11 +66,11 @@ export function Hero() {
     <div className="hero-inner">
       <div className="intro-topline">
         <div>
-          <motion.h1 initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .25, ease: [0.22, 1, 0.36, 1] }}>Mohammed Danish</motion.h1>
+          <motion.h1 initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .25, ease: [0.22, 1, 0.36, 1] }}>Mohammed Danish<span className="sr-only"> — Product Management Intern &amp; Frontend Developer</span></motion.h1>
           <motion.p className="hero-role" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .55, duration: .7 }}>{personalInfo.role}</motion.p>
           <motion.p className="hero-description" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .7, duration: .7 }}>{personalInfo.intro}</motion.p>
           <motion.div className="intro-details" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .85, duration: .7 }}><span><Globe size={17} aria-hidden="true" />{personalInfo.location}</span><a href={`mailto:${personalInfo.email}`}><Mail size={17} aria-hidden="true" />{personalInfo.email}</a></motion.div>
-          <motion.div className="intro-links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: .7 }}><a href={personalInfo.github} target="_blank" rel="noreferrer" aria-label="GitHub"><BrandIcon path={siGithub.path} /></a><a href={personalInfo.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><BrandIcon path={linkedinPath} /></a><a href={personalInfo.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><BrandIcon path={siInstagram.path} /></a><a href="#projects" aria-label="Projects"><FolderOpen size={20} aria-hidden="true" /></a></motion.div>
+          <motion.div className="intro-links" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: .7 }}><a href={personalInfo.github} target="_blank" rel="noreferrer" aria-label="GitHub — Mohammed Danish"><BrandIcon path={siGithub.path} /></a><a href={personalInfo.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn — Mohammed Danish"><BrandIcon path={linkedinPath} /></a><a href={personalInfo.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><BrandIcon path={siInstagram.path} /></a><a href="#projects" aria-label="Projects"><FolderOpen size={20} aria-hidden="true" /></a></motion.div>
         </div>
       </div>
       <div className="intro-about"><SectionLabel index="01">About</SectionLabel><Reveal><div className="about-copy"><p>{aboutContent.main}</p><p>{aboutContent.product}</p></div></Reveal></div>
