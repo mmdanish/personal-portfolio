@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://danish-portfolio-liard.vercel.app/sitemap.xml
+Sitemap: https://v0-mhddanish.vercel.app/sitemap.xml

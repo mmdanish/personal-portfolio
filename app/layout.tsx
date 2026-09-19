@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
-const siteUrl = 'https://danish-portfolio-liard.vercel.app/'
+const siteUrl = 'https://v0-mhddanish.vercel.app/'
 const pageTitle = 'Mohammed Danish — Product Management Intern & Frontend Developer'
 const pageDescription = 'Mohammed Danish is a Product Management Intern at Edapt and a freelance frontend developer building modern digital products and user-focused web experiences.'
 
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: { canonical: siteUrl },
+  robots: { index: true, follow: true },
   openGraph: {
     title: pageTitle,
     description: 'Product Management Intern at Edapt and freelance frontend developer building modern digital products and user-focused web experiences.',
