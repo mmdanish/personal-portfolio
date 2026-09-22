@@ -55,9 +55,12 @@ export default function RootLayout({
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
-          '@graph': [
-            { '@type': 'Person', name: 'Mohammed Danish', url: siteUrl, jobTitle: 'Product Management Intern', worksFor: { '@type': 'Organization', name: 'Edapt' }, sameAs: ['https://github.com/mmdanish', 'https://linkedin.com/in/mmdanish'] },
-            { '@type': 'WebSite', name: 'Mohammed Danish', url: siteUrl },
+          '@type': 'Person',
+          name: 'Mohammed Danish',
+          url: siteUrl,
+          sameAs: [
+            'https://github.com/mmdanish',
+            'https://www.linkedin.com/in/mmdanish/',
           ],
         }) }} />
         {process.env.NODE_ENV === 'production' && <Analytics />}
