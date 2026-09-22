@@ -66,7 +66,7 @@ export function Hero() {
     <div className="hero-inner">
       <div className="intro-topline">
         <div>
-          <motion.h1 initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .25, ease: [0.22, 1, 0.36, 1] }}>Mohammed Danish<span className="sr-only"> — Product Management Intern &amp; Frontend Developer</span></motion.h1>
+          <motion.h1 initial={{ opacity: 0, y: 45 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .25, ease: [0.22, 1, 0.36, 1] }}>Mohammed Danish<span className="sr-only"> — Product Associate &amp; Frontend Developer</span></motion.h1>
           <motion.p className="hero-role" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .55, duration: .7 }}>{personalInfo.role}</motion.p>
           <motion.p className="hero-description" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .7, duration: .7 }}>{personalInfo.intro}</motion.p>
           <motion.div className="intro-details" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .85, duration: .7 }}><span><Globe size={17} aria-hidden="true" />{personalInfo.location}</span><a href={`mailto:${personalInfo.email}`}><Mail size={17} aria-hidden="true" />{personalInfo.email}</a></motion.div>

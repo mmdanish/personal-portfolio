@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 const siteUrl = 'https://v0-mhddanish.vercel.app/'
-const pageTitle = 'Mohammed Danish — Product Management Intern & Frontend Developer'
-const pageDescription = 'Mohammed Danish is a Product Management Intern at Edapt and a freelance frontend developer building modern digital products and user-focused web experiences.'
+const pageTitle = 'Mohammed Danish — Product Associate & Frontend Developer'
+const pageDescription = 'Mohammed Danish is a Product Associate at Edapt and a freelance frontend developer building modern digital products and user-focused web experiences.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   openGraph: {
     title: pageTitle,
-    description: 'Product Management Intern at Edapt and freelance frontend developer building modern digital products and user-focused web experiences.',
+    description: 'Product Associate at Edapt and freelance frontend developer building modern digital products and user-focused web experiences.',
     type: 'website',
     url: siteUrl,
     images: [{ url: '/md-favicon.png', width: 1280, height: 1280, alt: 'MD monogram for Mohammed Danish' }],
@@ -55,9 +55,12 @@ export default function RootLayout({
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
-          '@graph': [
-            { '@type': 'Person', name: 'Mohammed Danish', url: siteUrl, jobTitle: 'Product Management Intern', worksFor: { '@type': 'Organization', name: 'Edapt' }, sameAs: ['https://github.com/mmdanish', 'https://linkedin.com/in/mmdanish'] },
-            { '@type': 'WebSite', name: 'Mohammed Danish', url: siteUrl },
+          '@type': 'Person',
+          name: 'Mohammed Danish',
+          url: siteUrl,
+          sameAs: [
+            'https://github.com/mmdanish',
+            'https://www.linkedin.com/in/mmdanish/',
           ],
         }) }} />
         {process.env.NODE_ENV === 'production' && <Analytics />}
