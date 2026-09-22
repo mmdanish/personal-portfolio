@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: 'Mohammed Danish',
-  role: 'Frontend Developer & Product Management Intern',
+  role: 'Frontend Developer & Product Associate',
   location: 'Kerala, India',
   email: 'mhddanish567@gmail.com',
   linkedin: 'https://linkedin.com/in/mmdanish',
@@ -10,14 +10,14 @@ export const personalInfo = {
 }
 
 export const aboutContent = {
-  main: 'I’m currently working as a Product Management Intern at Edapt, where I’m involved in product research, feature planning, requirement gathering, and improving user experiences. I work closely with design, engineering, and business teams to understand problems and translate ideas into practical product solutions.',
+  main: 'I’m currently working as a Product Associate at Edapt, where I’m involved in product research, feature planning, requirement gathering, and improving user experiences. I work closely with design, engineering, and business teams to understand problems and translate ideas into practical product solutions.',
   product: 'Alongside my product management role, I work part-time as a Freelance Frontend Developer, building modern, responsive, and scalable web applications using React.js and JavaScript. With 1.5+ years of professional frontend experience, I bring a strong technical perspective to product development and enjoy bridging the gap between product ideas and implementation.',
 }
 
 export const experience = [
   {
     number: '01',
-    title: 'Product Management Intern',
+    title: 'Product Associate',
     company: 'Edapt',
     period: 'August 2026 – Present',
     description: [
