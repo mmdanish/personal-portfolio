@@ -1,16 +1,16 @@
 export const personalInfo = {
   name: 'Mohammed Danish',
-  role: 'Frontend Developer & Product Associate',
+  role: 'Product Associate & Frontend Developer',
   location: 'Kerala, India',
   email: 'mhddanish567@gmail.com',
   linkedin: 'https://linkedin.com/in/mmdanish',
   instagram: 'https://instagram.com/__.mohd.danish._',
   github: 'https://github.com/mmdanish',
-  intro: 'Building AI-powered learning experiences & digital products.',
+  intro: 'Product Associate and Frontend Developer building digital products, AI-powered learning experiences, and responsive web applications.',
 }
 
 export const aboutContent = {
-  main: 'I’m currently working as a Product Associate at Edapt, where I’m involved in product research, feature planning, requirement gathering, and improving user experiences. I work closely with design, engineering, and business teams to understand problems and translate ideas into practical product solutions.',
+  main: 'I’m Mohammed Danish, currently working as a Product Associate at Edapt, where I’m involved in product research, feature planning, requirement gathering, and improving user experiences. I work closely with design, engineering, and business teams to understand problems and translate ideas into practical product solutions.',
   product: 'Alongside my product management role, I work part-time as a Freelance Frontend Developer, building modern, responsive, and scalable web applications using React.js and JavaScript. With 1.5+ years of professional frontend experience, I bring a strong technical perspective to product development and enjoy bridging the gap between product ideas and implementation.',
 }
 
@@ -100,7 +100,7 @@ export const skills = {
 export const projects = [
   {
     number: '01',
-    name: 'Sellops',
+    name: 'Sellops ',
     subtitle: 'ERP-Based Business Management Software',
     status: 'Ongoing',
     role: 'Frontend Developer',
