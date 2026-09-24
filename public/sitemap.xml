@@ -5,14 +5,4 @@
     <changefreq>monthly</changefreq>
     <priority>1.00</priority>
   </url>
- <url>
-    <loc>https://github.com/mmdanish</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-     <loc>https://www.linkedin.com/in/mmdanish</loc>
-     <changefreq>yearly</changefreq>
-     <priority>1.00</priority>
-  </url>
 </urlset>
